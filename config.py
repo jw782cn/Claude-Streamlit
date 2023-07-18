@@ -14,7 +14,8 @@ openai = promptlayer.openai
 openai_api_key = st.secrets.get("OPENAI_API_KEY", "")
 api_base = st.secrets.get("OPENAI_API_BASE", "")
 openai.api_key = openai_api_key
-openai.api_base = api_base
+if api_base != "":
+    openai.api_base = api_base
 
 # anthropic
 anthropic_api_key = st.secrets.get("ANTHROPIC_API_KEY", "")
