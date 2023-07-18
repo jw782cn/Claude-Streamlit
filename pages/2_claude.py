@@ -11,7 +11,7 @@ st.title("💬 Claude API Version")
 # Sidebar
 st.sidebar.title("Settings")
 
-api_key = st.sidebar.text_input("ANTHROPIC API Key", type="password", value=anthropic_api_key)
+# api_key = st.sidebar.text_input("ANTHROPIC API Key", type="password", value=anthropic_api_key)
 model = st.sidebar.selectbox("Model", models)
 temperature = st.sidebar.slider("Temperature", 0.0, 1.0, 0.1, 0.1)
 system_prompt = st.sidebar.text_area("System Prompt", value=ASK_TEMPLATE)

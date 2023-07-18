@@ -12,14 +12,7 @@ st.title("💬 ChatGPT API Version")
 st.sidebar.title("Settings")
 
 # password
-api_key = st.sidebar.text_input("OPENAI API Key", type="password", value=openai_api_key)
-
-# if api_key changed, update api_key
-if api_key != openai_api_key:
-    openai_api_key = api_key
-    openai.api_key = openai_api_key
-    print("api_key changed")
-
+# api_key = st.sidebar.text_input("OPENAI API Key", type="password", value=openai_api_key)
 model = st.sidebar.selectbox("Model", models)
 temperature = st.sidebar.slider("Temperature", 0.0, 1.0, 0.1, 0.1)
 system_prompt = st.sidebar.text_area("System Prompt", value=ASK_TEMPLATE)
