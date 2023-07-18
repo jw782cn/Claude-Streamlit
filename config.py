@@ -11,13 +11,13 @@ from anthropic import Anthropic, HUMAN_PROMPT, AI_PROMPT
 # openai
 promptlayer.api_key = st.secrets["PROMPTLAYER_API_KEY"]
 openai = promptlayer.openai
-openai_api_key = st.secrets["OPENAI_API_KEY"]
-api_base = st.secrets["OPENAI_API_BASE"]
+openai_api_key = st.secrets["OPENAI_API_KEY"] or ""
+api_base = st.secrets["OPENAI_API_BASE"] or ""
 openai.api_key = openai_api_key
 openai.api_base = api_base
 
 # anthropic
-anthropic_api_key = st.secrets["ANTHROPIC_API_KEY"]
+anthropic_api_key = st.secrets["ANTHROPIC_API_KEY"] or ""
 anthropic = Anthropic(api_key=anthropic_api_key)
 # anthropic = promptlayer.anthropic
 # client = anthropic.Client(api_key=anthropic_api_key)
