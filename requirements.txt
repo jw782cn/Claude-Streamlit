@@ -1,0 +1,9 @@
+promptlayer
+streamlit
+openai
+langchain
+pinecone-client
+tiktoken
+termcolor
+requests
+anthropic
