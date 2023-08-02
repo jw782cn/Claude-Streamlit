@@ -17,6 +17,7 @@ temperature = st.sidebar.slider("Temperature", 0.0, 1.0, 0.1, 0.1)
 system_prompt = st.sidebar.text_area("System Prompt", value=ASK_TEMPLATE)
 stream = st.sidebar.checkbox("Stream", value=True)
 
+
 # Main
 # button: creat bot
 # after click button, initial
@@ -38,6 +39,14 @@ def clear_session():
     st.session_state["bot"] = None
 # Button: Clear
 clear_button = st.sidebar.button("Clear", on_click=clear_session)
+
+# restart = clear and initialize
+def restart():
+    clear_session()
+    initialization()
+    render()
+# button restart
+restart_button = st.sidebar.button("Restart", on_click=restart)
 
 # Button: save history messages
 def save_history():
@@ -77,11 +86,14 @@ if st.session_state.get("bot") is None:
 Welcome to claude api version!
 """
 
+# render messages
+def render():
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"], avatar="🧑‍💻" if message["role"]=="user" else "🤖"):
+            st.markdown(message["content"])
+render()
 
-for message in st.session_state.messages:
-    with st.chat_message(message["role"], avatar="🧑‍💻" if message["role"]=="user" else "🤖"):
-        st.markdown(message["content"])
-
+# TODO： doesn't work
 disable_input = st.session_state.bot is None
 
 if prompt := st.chat_input("", key="input", disabled=disable_input):

@@ -11,14 +11,12 @@ from chatbots.utils import (
 )
 
 models = ["gpt-3.5-turbo", "gpt-4",
-          "gpt-3.5-turbo-16k-0613",
-          "gpt-4-32k-0613"]
+          "gpt-3.5-turbo-16k-0613",]
 
 context_windows = {
     "gpt-3.5-turbo": 3000,
     "gpt-4": 7000,
     "gpt-3.5-turbo-16k-0613": 15000,
-    "gpt-4-32k-0613": 30000
 }
 
 GPT_MODEL = "gpt-3.5-turbo"

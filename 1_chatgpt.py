@@ -12,10 +12,11 @@ st.title("💬 ChatGPT API Version")
 st.sidebar.title("Settings")
 
 # password
+# don't show this online
 # api_key = st.sidebar.text_input("OPENAI API Key", type="password", value=openai_api_key)
 model = st.sidebar.selectbox("Model", models)
 temperature = st.sidebar.slider("Temperature", 0.0, 1.0, 0.1, 0.1)
-system_prompt = st.sidebar.text_area("System Prompt", value=ASK_TEMPLATE)
+system_prompt = st.sidebar.text_area("System Message", value=ASK_TEMPLATE)
 stream = st.sidebar.checkbox("Stream", value=True)
 
 # Main
@@ -39,6 +40,14 @@ def clear_session():
     st.session_state["bot"] = None
 # Button: Clear
 clear_button = st.sidebar.button("Clear", on_click=clear_session)
+
+# restart = clear and initialize
+def restart():
+    clear_session()
+    initialization()
+    render()
+# button restart
+restart_button = st.sidebar.button("Restart", on_click=restart)
 
 # Button: save history messages
 def save_history():
@@ -78,11 +87,13 @@ if st.session_state.get("bot") is None:
 Welcome to chatgpt api version!
 """
 
+# render messages
+def render():
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"], avatar="🧑‍💻" if message["role"]=="user" else "🤖"):
+            st.markdown(message["content"])
 
-for message in st.session_state.messages:
-    with st.chat_message(message["role"], avatar="🧑‍💻" if message["role"]=="user" else "🤖"):
-        st.markdown(message["content"])
-
+# TODO: doesn't work
 disable_input = st.session_state.bot is None
 
 if prompt := st.chat_input("", key="input", disabled=disable_input):
