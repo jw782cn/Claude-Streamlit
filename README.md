@@ -1,6 +1,4 @@
-# MyClaude
- Claude API Streamlit Version
-
+# Claude - Streamlit Version
 ![CleanShot 2023-08-02 at 11.52.34@2x](https://p.ipic.vip/205jcl.png)
 
 - Provide a simple Streamlit Version with ChatGPT and Claude API.
