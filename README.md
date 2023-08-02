@@ -35,3 +35,6 @@ streamlit run claude.py
 ## More Screenshots
 
 ![CleanShot 2023-08-02 at 12.17.32@2x](https://p.ipic.vip/a2bxfw.png)
+
+![CleanShot 2023-08-02 at 12.20.20@2x](https://p.ipic.vip/3j47s1.png)
+
