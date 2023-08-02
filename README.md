@@ -32,3 +32,6 @@ To run this project in localhost, run bash command below:
 streamlit run claude.py
 ```
 
+## More Screenshots
+
+![CleanShot 2023-08-02 at 12.17.32@2x](https://p.ipic.vip/a2bxfw.png)
