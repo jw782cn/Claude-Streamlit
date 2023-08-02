@@ -92,7 +92,7 @@ def render():
     for message in st.session_state.messages:
         with st.chat_message(message["role"], avatar="🧑‍💻" if message["role"]=="user" else "🤖"):
             st.markdown(message["content"])
-
+render()
 # TODO: doesn't work
 disable_input = st.session_state.bot is None
 
